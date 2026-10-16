@@ -1,0 +1,22 @@
+[package]
+name = "todography"
+description = "Checks and queries a map of components kept as Markdown files"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/mkmik/todography"
+
+[[bin]]
+name = "todography"
+path = "src/main.rs"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+base64 = "0.22"
+ratatui = { version = "0.30", default-features = false, features = ["crossterm"] }
+pulldown-cmark = { version = "0.13", default-features = false, features = ["html"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = { version = "1", default-features = false, features = ["std", "serde", "parse"] }
