@@ -5,6 +5,8 @@ version = "0.3.0"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/mkmik/todography"
+homepage = "https://mkmik.github.io/todography/"
+documentation = "https://mkmik.github.io/todography/"
 
 [[bin]]
 name = "todography"

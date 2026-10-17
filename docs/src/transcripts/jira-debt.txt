@@ -1,0 +1,6 @@
+$ todography debt
+t8y:/bridges/jira  research deferred
+    fuzzy: Jira's REST API  (Read issue status back into feature status)
+    fuzzy: a way to tie a Jira issue to a feature  (A field in the feature, or a label on the issue)
+
+research debt: 1

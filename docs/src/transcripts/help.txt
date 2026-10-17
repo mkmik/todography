@@ -1,0 +1,19 @@
+$ todography help
+usage: todography [--map DIR] COMMAND
+
+commands:
+  lint [--strict]                 check the map; exit 1 on errors (--strict: on warnings too)
+  show LABEL                      one component or feature: its needs, who needs it, why, blockers
+  why LABEL                       the chains of needs from the goals down to it
+  rdeps [--all] LABEL             what needs it (--all: and what needs those, and so on)
+  next [--all] [--milestone M]    wanted work whose hard needs are met (--all: blocked work too)
+  debt                            wanted components whose needs aren't researched yet
+  json                            the map as JSON
+  build [--out PATH]              write the interactive map (default out/map/index.html)
+  tui                             the interactive map's views in the terminal
+
+LABEL is t8y:/area/component, /area/component or area/component, with an
+optional #feature: exec/mailboxes#attention-asts.
+
+--map DIR is the map directory or the workspace root above docs/map; without it
+todography looks for todography.toml or docs/map/todography.toml here and in every directory above.

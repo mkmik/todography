@@ -1,0 +1,27 @@
+$ todography show page/agent-prompt
+t8y:/page/agent-prompt  Agent prompt
+  Copy a prompt for a coding agent: the work, its file, its blockers
+  aka copy button, workPrompt
+  ui, goal, partial, research done, wanted
+  refs assets/map.html, src/tui.rs
+  file docs/map/page/agent-prompt.md
+
+features:
+  done    page-copy   Copy button on wanted work in Focus and Roadmap
+  done    blockers    Blocked work lists every unfinished blocker, deepest first
+  done    tui-copy    c in the terminal puts the same prompt on the clipboard
+  todo    one-source  One copy of the prompt text instead of two
+                      note: Today the text lives in both src/tui.rs and assets/map.html, and a change has to be made twice
+
+needs:
+  #page-copy -> t8y:/page/focus  [met]
+  #page-copy -> t8y:/page/roadmap  [met]
+  #blockers -> t8y:/model/work  [met]
+  #tui-copy -> t8y:/tui/terminal#osc52  [met]
+  #one-source -> t8y:/cli/json#prompts  [unmet]
+
+why:
+  a goal
+
+blocked:
+  t8y:/page/agent-prompt#one-source  by t8y:/cli/json#prompts

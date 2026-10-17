@@ -1,0 +1,81 @@
+{
+  "label": "t8y:/ship/tests",
+  "area": "ship",
+  "slug": "tests",
+  "title": "Tests",
+  "summary": "cargo test: a fixture map full of mistakes, and the example map",
+  "aka": [
+    "fixture",
+    "cargo test"
+  ],
+  "kind": "infra",
+  "intent": "induced",
+  "research": "done",
+  "milestone": null,
+  "refs": [
+    "tests/fixture.rs",
+    "tests/example.rs"
+  ],
+  "status": "done",
+  "status_explicit": false,
+  "body_html": "",
+  "features": [
+    {
+      "id": "fixture",
+      "label": "t8y:/ship/tests#fixture",
+      "title": "A small map whose mistakes are on purpose, one lint line each",
+      "status": "done",
+      "milestone": null,
+      "note": null,
+      "refs": [
+        "tests/fixtures/map"
+      ],
+      "needs": []
+    },
+    {
+      "id": "example",
+      "label": "t8y:/ship/tests#example",
+      "title": "The example map lints clean and matches the walkthrough",
+      "status": "done",
+      "milestone": null,
+      "note": null,
+      "refs": [],
+      "needs": [
+        "t8y:/ship/example"
+      ]
+    }
+  ],
+  "needs": [
+    {
+      "on": "t8y:/ship/example",
+      "fuzzy": null,
+      "why": null,
+      "soft": false,
+      "from_feature": "example",
+      "target": "t8y:/ship/example",
+      "target_feature": null,
+      "met": true
+    }
+  ],
+  "needed_by": [
+    {
+      "from": "t8y:/ship/ci",
+      "from_feature": null,
+      "on_feature": null,
+      "why": "The suite it runs",
+      "soft": false
+    }
+  ],
+  "wanted": true,
+  "why_paths": [
+    [
+      "t8y:/ship/ci",
+      "t8y:/ship/tests"
+    ]
+  ],
+  "debt": false,
+  "progress": {
+    "done": 2,
+    "total": 2
+  }
+}

@@ -1,0 +1,6 @@
+$ todography next
+no milestone
+  t8y:/bridges/jira      todo     Jira bridge
+  t8y:/cli/json#prompts  todo     Each work item carries its agent prompt, written once in Rust
+
+2 ready

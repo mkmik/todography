@@ -1,0 +1,5 @@
+$ todography why crates/base64
+t8y:/crates/base64  base64
+  t8y:/page/agent-prompt -> t8y:/tui/terminal -> t8y:/crates/base64
+  t8y:/tui/focus -> t8y:/tui/terminal -> t8y:/crates/base64
+  t8y:/tui/map -> t8y:/tui/terminal -> t8y:/crates/base64

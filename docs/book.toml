@@ -1,0 +1,26 @@
+[book]
+title = "todography"
+description = "Keep a map of your project's components next to its code"
+authors = ["Marko Mikulicic"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+site-url = "/todography/"
+git-repository-url = "https://github.com/mkmik/todography"
+edit-url-template = "https://github.com/mkmik/todography/edit/main/docs/{path}"
+default-theme = "light"
+preferred-dark-theme = "navy"
+additional-css = ["theme/todography.css"]
+no-section-label = true
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.search]
+limit-results = 20

@@ -1,0 +1,7 @@
+$ todography next --all
+no milestone
+  t8y:/core/sync#two-way     todo     Copy changes both ways, and spot conflicts
+                             blocked by t8y:/core/watch#recursive
+  t8y:/core/watch#recursive  todo     Watch a whole tree
+
+1 ready, 1 blocked

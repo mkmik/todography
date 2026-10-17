@@ -1,0 +1,2 @@
+$ todography lint --strict
+0 errors, 0 warnings, 38 components, research debt: 0

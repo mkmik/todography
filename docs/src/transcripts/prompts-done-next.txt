@@ -1,0 +1,5 @@
+$ todography next --all
+no milestone
+  t8y:/page/agent-prompt#one-source  todo     One copy of the prompt text instead of two
+
+1 ready, 0 blocked

@@ -1,0 +1,7 @@
+$ todography next --all
+no milestone
+  t8y:/cli/json#prompts              todo     Each work item carries its agent prompt, written once in Rust
+  t8y:/page/agent-prompt#one-source  todo     One copy of the prompt text instead of two
+                                     blocked by t8y:/cli/json#prompts
+
+1 ready, 1 blocked

@@ -1,0 +1,13 @@
+title = "my project"
+
+[[band]]
+id = "app"
+title = "Application"
+
+[[band]]
+id = "base"
+title = "Foundations"
+
+[[kind]]
+id = "code"
+summary = "Code in this repository"

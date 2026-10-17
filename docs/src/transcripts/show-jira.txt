@@ -1,0 +1,14 @@
+$ todography show bridges/jira
+t8y:/bridges/jira  Jira bridge
+  Keep the leaf tasks in Jira and the shape of the project in the map
+  aka jira, issue tracker
+  bridge, aspiration, todo, research deferred, not wanted
+  file docs/map/bridges/jira.md
+
+needs:
+  t8y:/model/work  [met]  Work items are what would map to issues
+  "Jira's REST API"  [fuzzy]  Read issue status back into feature status
+  "a way to tie a Jira issue to a feature"  [fuzzy]  A field in the feature, or a label on the issue
+
+why:
+  not wanted: no goal needs it

@@ -1,0 +1,43 @@
+# todography's map of itself. `todography lint` checks it; `todography build`
+# draws it.
+title = "todography"
+
+[[band]]
+id = "surfaces"
+title = "What you use"
+
+[[band]]
+id = "engine"
+title = "What it works out"
+
+[[band]]
+id = "format"
+title = "What it reads"
+
+[[band]]
+id = "ship"
+title = "How it ships"
+
+[[band]]
+id = "deps"
+title = "What it stands on"
+
+[[kind]]
+id = "core"
+summary = "Part of the todography crate"
+
+[[kind]]
+id = "ui"
+summary = "A way to look at the map: the page or the terminal"
+
+[[kind]]
+id = "infra"
+summary = "Repository machinery: CI, releases, assets"
+
+[[kind]]
+id = "dep"
+summary = "A crate todography depends on"
+
+[[kind]]
+id = "bridge"
+summary = "A link to another tool"
