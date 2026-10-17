@@ -22,9 +22,9 @@ jobs:
       - run: todography lint --strict
 ```
 
-GitHub's Ubuntu runners come with Rust installed. To save the build time on
-every run, cache `~/.cargo/bin`, or pin a version with
-`cargo install todography --locked --version X.Y.Z` and cache on that.
+GitHub's Ubuntu runners come with Rust installed. Building todography
+takes a minute or two; pin a version with `--version X.Y.Z` if you want
+the same one every time.
 
 Start without `--strict` if your map has warnings you aren't ready to fix,
 and switch it on once it's clean.
@@ -40,6 +40,7 @@ add a job that builds it and deploys it from `main`:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:

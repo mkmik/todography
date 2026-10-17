@@ -114,8 +114,8 @@ out/map/index.html
 
 That writes one self-contained HTML file under the repository root. Open it
 in a browser for the map, a focus view of each component, a roadmap, and a
-list of options you haven't chosen yet. `todography tui` shows the same
-views in the terminal.
+list of options you haven't chosen yet. `todography tui` shows the map,
+focus and roadmap views in the terminal.
 
 ## Next
 

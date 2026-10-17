@@ -7,7 +7,8 @@ phone, and follows your system's light or dark setting unless you pick one
 in its footer.
 
 The example's page is published with this book:
-**[open the example map](../example/index.html)**.
+**[open the example map](../example/index.html)**. (A Markdown image in a
+component's description is the one thing the page fetches from elsewhere.)
 
 The header shows the map's title, when it was built, and counts: how many
 components, how many are wanted, done and partial, and how much work is
@@ -16,9 +17,9 @@ finds components by title, other names, label or summary. If lint found
 anything, a badge in the header says how many errors and warnings, and
 opens the list.
 
-There are four views. Each one keeps its state in the address after `#`,
-so the back button works and you can link to exactly what you're looking
-at.
+There are four views. The view you're on, and its main settings, live in
+the address after `#`, so the back button works and you can link to what
+you're looking at. The links below open the example's page at each view.
 
 ## Map
 

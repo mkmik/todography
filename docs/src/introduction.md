@@ -22,8 +22,8 @@ From those files, `todography` works out the rest:
   Everything a goal needs is wanted too, through any number of steps.
 - **Why.** For each piece that isn't a goal, the chains of needs that lead
   down to it from a goal. That answers "why is this here?"
-- **Ready and blocked.** Unfinished work whose dependencies are done is
-  ready. The rest is blocked, and the map says by what.
+- **Ready and blocked.** Wanted, unfinished work whose dependencies are
+  met is ready. The rest is blocked, and the map says by what.
 - **Research debt.** Wanted pieces whose own dependencies nobody has looked
   into yet.
 

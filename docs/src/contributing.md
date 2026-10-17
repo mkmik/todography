@@ -32,7 +32,7 @@ Each one should come out as exactly one lint line, and the tests check
 that.
 
 The example maps must lint clean under `--strict`. `tests/example.rs` also
-pins every fact the walkthrough states about the example, and compares the
+pins the facts the walkthrough's explanations rest on, and compares the
 command output in `docs/src/transcripts/` with what the tool prints now.
 When you change the tool's output or the example on purpose, rewrite the
 transcripts:
@@ -54,8 +54,8 @@ warnings`.
 - The page template is built in with `include_str!`, so rebuild after
   editing it.
 - The agent prompt's text is written twice, in `src/tui.rs` and in
-  `assets/map.html`. Change both. (The example map has this as its one
-  piece of todo work.)
+  `assets/map.html`. Change both. (The example map records this as the
+  todo feature `t8y:/page/agent-prompt#one-source`.)
 
 ## The book
 

@@ -257,7 +257,10 @@ component's `[[needs]]` when you want to say why, or to make a need soft or
 fuzzy. A feature can need another feature of its own component (`"#basic"`),
 but not its own component as a whole, and not itself.
 
-The needs of a `dropped` feature pull nothing in and block nothing.
+The needs of a `dropped` feature pull nothing in and block nothing. The
+other way round is different: a need *on* a dropped feature can never be
+met, so it blocks for good. When you drop a feature, check
+`todography rdeps 'area/component#feature'` for anything that needed it.
 
 ## Needs
 

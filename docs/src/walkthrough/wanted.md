@@ -10,9 +10,9 @@ Every component says why it is on the map, with its `intent`:
 In the example, the goals are the things a person uses or relies on
 directly: `lint`, the queries, `build`, each view of the page and of the
 terminal UI, the agent prompt, CI, releases, Renovate and the docs.
-Everything in the model area is induced. Nobody wants "research debt" or
-"the needs graph" for themselves; they exist because the commands and
-views need them.
+Apart from one unchosen idea, everything in the model area is induced.
+Nobody wants "research debt" or "the needs graph" for themselves; they
+exist because the commands and views need them.
 
 ## Wanted
 
@@ -39,9 +39,9 @@ prints them:
 
 Read each line from left to right: the agent-prompt goal needs the terminal
 UI's shell, which needs the base64 crate. The other two chains come from
-two of the terminal's views. Every chain ends in `tui/terminal`, so the
-answer to "why do we depend on base64?" is "the terminal UI". If you
-looked at `tui/terminal.md`, you'd find the reason: its `osc52` feature,
+two of the terminal's views. Every chain passes through `tui/terminal`
+just before base64, so the answer to "why do we depend on base64?" is "the
+terminal UI". `tui/terminal.md` says exactly where: its `osc52` feature,
 which copies to the clipboard over the terminal, needs base64 to encode
 what it sends.
 

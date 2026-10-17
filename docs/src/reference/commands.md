@@ -42,6 +42,9 @@ An option a command doesn't take is an error.
 | 1 | `lint` found errors, or warnings with `--strict` |
 | 2 | No command, an unknown command or option, a missing argument, no map found, a label or milestone that doesn't exist, or a file that can't be written |
 
+"No map found" only happens without `--map`. With `--map DIR`, todography
+trusts `DIR`: if it isn't a map, the problems show up as lint errors.
+
 `todography` with no command prints the usage and exits with 2;
 `todography help` prints it and exits with 0. Errors go to standard error,
 prefixed `todography:`.

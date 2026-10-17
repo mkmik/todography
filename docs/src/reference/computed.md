@@ -36,7 +36,7 @@ dropped feature. Only hard needs make things wanted and block work.
 
 | Need | Met when |
 | --- | --- |
-| on a feature (`/a/b#f`) | that feature is `done` |
+| on a feature (`/a/b#f`) | that feature is `done`. A need on a dropped feature is never met |
 | on a whole component (`/a/b`) | that component is `partial` or `done` |
 | fuzzy | never |
 | on a label that doesn't resolve | never (and lint reports it) |
@@ -112,14 +112,18 @@ The page and the terminal UI place wanted work in columns:
 - The first column, "Ready now", holds work nothing blocks.
 - Each later column holds work whose blockers are all in earlier columns.
 
-A blocker counts as being in a column like this:
+Put another way, an item sits one column after its furthest blocker. A
+blocker's own column is found like this:
 
-- a feature, or a component without features, is in the column of its own
-  work item;
-- a component with features is in the column of its earliest unfinished
-  feature, since one done feature makes it usable;
-- anything else, such as a component that is already usable, counts as
-  ready.
+- a feature, or a component without features, that is a work item: the
+  column of that work item;
+- a component with features: the column of whichever of its unfinished
+  features comes earliest in the roadmap, since one done feature makes it
+  usable;
+- anything else: the first column. This covers blockers that can never be
+  met, such as a need on a dropped feature, which makes the roadmap look
+  more hopeful than `next --all`. Lint catches unresolved labels; a need on
+  a dropped feature is worth fixing by hand.
 
 Cycles of blockers are cut where the walk meets itself, so every item gets
 a column.

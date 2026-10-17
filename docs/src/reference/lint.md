@@ -13,7 +13,9 @@ docs/map/net/ssl.md: warning: research is missing; taken as deferred
 ```
 
 Each line is `file: error: message` or `file: warning: message`. File
-names are relative to the workspace root, the directory above `docs/`.
+names are relative to the workspace root: the directory above `docs/` when
+the map is at `docs/map`, so they start with `docs/map/`. A map anywhere
+else is named by its own directory, as in `map/exec/qio.md`.
 Errors come first, then warnings, each sorted by file and in the order they
 were found within a file. The last line counts errors, warnings,
 components, and wanted components with research debt.
@@ -24,7 +26,11 @@ components, and wanted components with research debt.
 | --- | --- |
 | 0 | No errors (and, with `--strict`, no warnings) |
 | 1 | Errors (or, with `--strict`, warnings) |
-| 2 | The map couldn't be found, or the command line was wrong |
+| 2 | No map was found, or the command line was wrong |
+
+Without `--map`, "no map found" means no `todography.toml` here or above.
+With `--map DIR`, todography doesn't check that `DIR` is a map: a directory
+that is missing or empty shows up as lint errors, and exit status 1.
 
 ## Errors
 
@@ -45,7 +51,7 @@ components, and wanted components with research debt.
 | `directory without AREA.md` | Every directory under the map is an area and needs one |
 | `bad directory name: use lowercase letters, digits and -` | The directory's name can't be part of a label |
 | `can't read the directory: ...` | A filesystem error |
-| `a component must sit in an area's directory` | A `.md` file directly in the map directory, other than `README.md` |
+| `a component must sit in an area's directory` | A `.md` file directly in the map directory. `README.md` and `AREA.md` there are skipped |
 
 ### AREA.md and component files
 
@@ -56,7 +62,6 @@ components, and wanted components with research debt.
 | `line N: ...` | The front matter doesn't parse, has an unknown field, a value that isn't allowed (such as `intent = "wanted"`), or a feature without an `id` |
 | `missing title` | `title` is missing or blank |
 | `missing summary` | `summary` is missing or blank |
-| `can't read it: ...` | A filesystem error |
 
 ### AREA.md
 
@@ -70,6 +75,7 @@ components, and wanted components with research debt.
 | Message | Cause |
 | --- | --- |
 | `bad file name: use lowercase letters, digits and -, then .md` | The file's name can't be part of a label |
+| `can't read it: ...` | A filesystem error. (An `AREA.md` that can't be read is reported as `directory without AREA.md`.) |
 | `missing kind` | No `kind` field |
 | `unknown kind "x"` | The kind isn't in `todography.toml` |
 | `missing intent` | No `intent` field |
@@ -95,7 +101,7 @@ components, and wanted components with research debt.
 | `bad label "x": ...` | The label isn't one of the [accepted forms](labels.md) |
 | `unresolved label x: no component t8y:/a/b` | No such file. Followed by `; did you mean t8y:/a/c?` when a label is close |
 | `unresolved label x: t8y:/a/b has no feature #f` | No such feature. Followed by `; did you mean #g?` when an id is close |
-| `x: a component can't need itself` | A need on the component's own label, or a feature needing itself |
+| `x: a component can't need itself` | A component's `[[needs]]` on its own label or one of its own features, a feature needing its own whole component, or a feature needing itself. A feature may need a different feature of its own component |
 
 "Close" means a small edit distance: one character for short names, up to
 three for long ones.

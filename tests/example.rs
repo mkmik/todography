@@ -125,6 +125,20 @@ fn shape() {
         ]
     );
     assert!(m.milestones.is_empty(), "the walkthrough says it has none");
+    // The bands, top to bottom, as shape.md describes them.
+    let band = |a: &str| m.areas.iter().find(|x| x.id == a).unwrap().band.clone();
+    for (a, b) in [
+        ("bridges", "surfaces"),
+        ("cli", "surfaces"),
+        ("page", "surfaces"),
+        ("tui", "surfaces"),
+        ("model", "engine"),
+        ("format", "format"),
+        ("ship", "ship"),
+        ("crates", "deps"),
+    ] {
+        assert_eq!(band(a), b, "area {a}");
+    }
 }
 
 #[test]
@@ -165,10 +179,15 @@ fn goals_pull_in_the_rest() {
             "tui/roadmap"
         ]
     );
-    // The model area is all induced: nobody wants it for itself.
-    for c in m.comps.iter().filter(|c| c.area == "model" && c.wanted) {
-        assert_eq!(c.intent, Intent::Induced, "{}", c.path);
-    }
+    // Apart from one idea, the model area is all induced.
+    assert_eq!(
+        paths(&m, |c| c.area == "model" && c.intent != Intent::Induced),
+        ["model/buckets"]
+    );
+    // The chain the walkthrough walks: a goal, the model, the loader, toml.
+    let toml = comp(&m, "crates/toml");
+    let loader = m.by_path["format/loader"];
+    assert!(toml.why_paths.iter().any(|p| p.contains(&loader)));
     // base64 is on the map because the terminal copies over OSC 52.
     let b = comp(&m, "crates/base64");
     assert_eq!(b.why_paths.len(), 3);
@@ -181,6 +200,9 @@ fn goals_pull_in_the_rest() {
         );
         assert_eq!(m.comps[p[0]].intent, Intent::Goal);
     }
+    // ...through its osc52 feature, as the walkthrough says.
+    let t = &m.comps[terminal];
+    assert_eq!(t.feature("osc52").unwrap().needs, ["t8y:/crates/base64"]);
     let (_, out) = run(&root(), &["why", "crates/base64"]);
     assert!(
         out.contains("t8y:/tui/terminal -> t8y:/crates/base64"),
@@ -204,6 +226,30 @@ fn status_and_met() {
         .find(|n| n.on.as_deref() == Some("t8y:/cli/json"))
         .unwrap();
     assert!(on_json.met);
+    // Most of the model area has no features.
+    let model: Vec<_> = m.comps.iter().filter(|c| c.area == "model").collect();
+    assert!(model.iter().filter(|c| c.features.is_empty()).count() * 2 > model.len());
+    // The TUI marks five tiles when the agent prompt is selected: each
+    // component any of its needs points at.
+    let ap = comp(&m, "page/agent-prompt");
+    let mut targets: Vec<_> = ap
+        .needs
+        .iter()
+        .filter_map(|n| n.target)
+        .map(|t| m.comps[t].path.as_str())
+        .collect();
+    targets.sort();
+    targets.dedup();
+    assert_eq!(
+        targets,
+        [
+            "cli/json",
+            "model/work",
+            "page/focus",
+            "page/roadmap",
+            "tui/terminal"
+        ]
+    );
     // A component without features takes its status field.
     assert_eq!(comp(&m, "model/wanted").status, Status::Done);
     assert!(comp(&m, "model/wanted").features.is_empty());

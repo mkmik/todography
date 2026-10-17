@@ -6,8 +6,10 @@ describes each view on the example map; this page lists the details.
 ## What's in the file
 
 The template is built into the binary. `build` puts the map's
-[JSON](json.md) into it and writes the result. The file loads nothing from
-anywhere else: no scripts, fonts or styles from other servers. You can open
+[JSON](json.md) into it and writes the result. The file loads no scripts,
+fonts or styles from other servers. The one exception is images: a
+Markdown image in a component's or an area's body becomes an `<img>`, and
+the browser fetches it from its URL. You can open
 it from disk, send it as an attachment, or serve it from any static host.
 In the JSON inside the page, `</` is written `<\/` and `<!--` as
 `\u003c!--`, so nothing in a map file can end the script early.
@@ -30,7 +32,10 @@ was built, and has a theme selector: system, light or dark.
 ## Addresses
 
 The current view lives in the address after `#`, so the back and forward
-buttons work and any view can be linked to.
+buttons work and you can link to a view. The address holds the view, the
+focused component, the map's filter and the roadmap's filters. The Choose
+view's filter text and checkboxes aren't in it, and previews live in local
+storage.
 
 | Address | Shows |
 | --- | --- |
@@ -98,8 +103,9 @@ A label after `focus=` can also be written without `t8y:` or the leading
 
 - The aspirations nothing wanted needs, by band and area. Each lists what
   choosing it would pull in: the components its hard needs reach that
-  aren't wanted today (through features that aren't dropped), and how many
-  features, fuzzy needs and unresearched components those hold.
+  aren't wanted today (through features that aren't dropped). It counts the
+  features, fuzzy needs and components with `research = "deferred"` in
+  that set, the aspiration itself included.
 - A filter that stays at the top while the list scrolls. Its words match
   the title, label, summary, other names and area; `Esc` clears it.
   **Previewed only** keeps the previewed aspirations. Another checkbox also
@@ -124,7 +130,9 @@ prompt for a coding agent on the clipboard with:
   its title, label and map file, and `ready now` if nothing blocks it. The
   prompt asks the agent to build all of it, or to say so if that's too much
   for one go and propose which dependencies to take first;
-- where its map file is, and the `todography show` command for the rest;
+- where its map file is, and the `todography show` command for the rest.
+  The prompt writes the file as `docs/map/area/component.md`, so for a map
+  kept somewhere else the agent should go by the `show` output;
 - a reminder to set `status = "done"` when a piece lands.
 
 [Working with coding agents](../guides/agents.md) shows a full prompt.

@@ -67,7 +67,7 @@ reports it as debt instead of guessing.
 ## Previewing a choice
 
 Editing a file to try a choice is a commitment you'd have to undo. The
-page's [Choose view](page.md#choose) lets you preview it instead: it lists
-every aspiration with what choosing it would pull in, and "Preview as
-chosen" recomputes wanted, ready and debt in the browser, for every view,
-without touching any file.
+page's [Choose view](page.md#choose) lets you preview it instead. It lists
+the aspirations nothing wanted needs, with what choosing each would pull
+in, and "Preview as chosen" recomputes wanted, ready and debt in the
+browser, for every view, without touching any file.

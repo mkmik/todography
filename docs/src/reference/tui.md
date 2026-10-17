@@ -17,10 +17,12 @@ keys for the current view.
 | `/` | Search, as the page's search box does |
 | `c` | Copy the agent prompt for the picked work |
 | `r` | Read the map files again |
-| `q`, `Ctrl-C` | Quit |
+| `q`, `Ctrl-C` | Quit (not while searching) |
 
-While searching: type to filter, `↑` and `↓` pick a result, `Enter` opens
-it in Focus, `Backspace` deletes, and `Esc` closes the search.
+While searching, every key goes to the search: type to filter, `↑` and `↓`
+pick a result, `Backspace` deletes, and `Esc` closes the search. `Enter`
+selects the result on the map in the Map view, and opens it in Focus from
+the other views.
 
 ## Map
 
@@ -52,8 +54,9 @@ selection's summary and the names of both sets.
 
 ## Focus
 
-Needs on the left, the card in the middle, needed by on the right: the same
-nodes, in the same order, as the page.
+Needs on the left, the card in the middle, needed by on the right: the
+same nodes as the page, in nearly the same order. (A need on a label the
+map doesn't have is listed last here, and first on the page.)
 
 | Key | Does |
 | --- | --- |
@@ -77,9 +80,10 @@ The page's columns.
 
 ## Mouse
 
-A click works like a tap on the page: the first click on a tile, a node, a
-feature, a roadmap item, a search result or a tab picks it, and a second
-click on the same thing opens it. A click on the trail goes back to that
+A click on a tile, a node or a roadmap item picks it, and a second click
+on the same thing opens it, as a tap does on the page. A click on a tab or
+a search result acts at once. A click on a feature in the card picks it,
+and a second click lets go of it. A click on the trail goes back to that
 point. The wheel scrolls the map and the card, and moves the pick in the
 column under the pointer.
 
@@ -90,5 +94,6 @@ does it: drag within a column to select, and releasing copies the text.
 
 `c` and drag-to-copy send the text with the OSC 52 escape sequence. That
 works over ssh and inside tmux, but the terminal must allow it. In tmux,
-set `set-clipboard on`. The copied prompt is the same text the page's copy
-button writes; see [the agent prompt](page.md#the-agent-prompt).
+set `set-clipboard on`. The copied prompt is the one the page's copy
+button writes, see [the agent prompt](page.md#the-agent-prompt), except
+that the page's version follows any aspirations you are previewing.

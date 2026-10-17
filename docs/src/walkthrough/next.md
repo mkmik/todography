@@ -7,8 +7,8 @@ that has no features. Done and dropped things aren't work.
 
 A work item is **blocked** by every hard need it has that isn't met, both
 its own and its component's. It's **ready** when it is wanted and nothing
-blocks it. A hard need is one with `on`, not `soft`, and not on a dropped
-feature.
+blocks it. A hard need is one with `on` that isn't `soft` and doesn't
+come from a dropped feature.
 
 `next` lists the ready work:
 

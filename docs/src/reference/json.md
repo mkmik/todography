@@ -4,8 +4,10 @@
 The page that `todography build` writes carries exactly this JSON, so
 anything the page shows, you can get from here for your own scripts.
 
-Labels are always absolute, `t8y:/area/component` or
-`t8y:/area/component#feature`. Optional values are `null` when absent.
+Labels are absolute, `t8y:/area/component` or
+`t8y:/area/component#feature`. The one exception is a label in a map file
+that doesn't parse: it stays as written, and lint reports it. Optional
+values are `null` when absent.
 
 ## Top level
 
