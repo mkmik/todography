@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="todography">
+  <g fill="none" stroke="#7A4E24" stroke-width="3.5" stroke-linejoin="round">
+    <path d="M14,124 C10,96 30,80 52,82 C66,84 76,92 86,92 C96,92 104,60 132,52 C164,44 190,68 188,104 C186,140 160,164 128,162 C104,160 96,146 84,148 C70,150 62,160 46,158 C26,156 16,144 14,124 Z"/>
+    <path d="M30,122 C30,108 40,100 52,102 C64,104 70,112 68,124 C66,136 56,142 46,140 C36,138 30,132 30,122 Z"/>
+    <path d="M104,104 C104,80 118,68 138,68 C160,68 172,84 170,104 C168,126 154,140 136,140 C116,140 104,126 104,104 Z"/>
+    <path d="M120,104 C120,92 128,84 138,84 C150,84 156,94 155,104 C154,116 146,122 137,122 C127,122 120,114 120,104 Z"/>
+  </g>
+  <path d="M57,116 C78,104 94,100 122,103" fill="none" stroke="#2F7D4F" stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round"/>
+  <circle cx="49" cy="121" r="6.5" fill="#2F7D4F"/>
+  <path d="M129,104 L136,111 L149,95" fill="none" stroke="#2F7D4F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

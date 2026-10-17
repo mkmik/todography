@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/todography-logo-dark.svg">
+    <img alt="todography" src="assets/logo/todography-logo.svg" width="390">
+  </picture>
+</p>
+
 # todography
 
 `todography` checks and queries a project's map of components in `docs/map/`:
