@@ -12,12 +12,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Toolchain
         run: |
           rustup toolchain install stable --profile minimal --component clippy,rustfmt
           rustup default stable
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
       - run: cargo fmt --check
       - run: cargo clippy --all-targets --locked -- -D warnings
       - run: cargo test --locked
@@ -34,12 +34,12 @@ jobs:
       contents: write # push the bump commit, tag, and GitHub release
       id-token: write # crates.io trusted publishing (OIDC)
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Toolchain
         run: |
           rustup toolchain install stable --profile minimal
           rustup default stable
-      - uses: taiki-e/install-action@v2
+      - uses: taiki-e/install-action@8cca0918f8471c33515202b73f56ab27f2bed283 # v2
         with:
           tool: cargo-edit
 
