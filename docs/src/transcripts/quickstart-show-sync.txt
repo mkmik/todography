@@ -1,0 +1,18 @@
+$ todography show core/sync
+t8y:/core/sync  Sync
+  Keeps two copies of a folder the same
+  code, goal, partial, research outline, wanted
+  file docs/map/core/sync.md
+
+features:
+  done    one-way  Copy changes from A to B
+  todo    two-way  Copy changes both ways, and spot conflicts
+
+needs:
+  #two-way -> t8y:/core/watch#recursive  [unmet]
+
+why:
+  a goal
+
+blocked:
+  t8y:/core/sync#two-way  by t8y:/core/watch#recursive

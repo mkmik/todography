@@ -1,0 +1,3 @@
+$ todography why core/watch
+t8y:/core/watch  File watcher
+  t8y:/core/sync -> t8y:/core/watch

@@ -1,0 +1,13 @@
+Implement the feature "One copy of the prompt text instead of two" of Agent prompt, t8y:/page/agent-prompt#one-source on the map of components.
+
+Today the text lives in both src/tui.rs and assets/map.html, and a change has to be made twice
+
+It is blocked. This unfinished work comes first, each item after what it needs:
+
+- JSON: Each work item carries its agent prompt, written once in Rust, t8y:/cli/json#prompts (docs/map/cli/json.md), ready now
+
+Implement all of it, then the feature "One copy of the prompt text instead of two" of Agent prompt. If that is too much for one go, say so before starting, and propose which of these dependencies to focus on first: the heavy ones that unblock the most, and why.
+
+Its entry is in docs/map/page/agent-prompt.md; `todography show 't8y:/page/agent-prompt#one-source'` prints it with its needs and why it is wanted, and does the same for each label above.
+
+When a piece lands, set its status = "done" in its map file.

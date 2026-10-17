@@ -1,0 +1,32 @@
+$ todography show cli/json
+t8y:/cli/json  JSON
+  todography json: the whole map and everything worked out, as JSON
+  aka json, json.rs
+  core, induced, partial, research done, wanted
+  refs src/json.rs
+  file docs/map/cli/json.md
+
+features:
+  done    export        Components, features, needs, status, wanted, why, work, debt, lint
+  done    markdown      Bodies and AREA.md rendered to HTML
+  done    reproducible  generated is SOURCE_DATE_EPOCH when set
+  todo    prompts       Each work item carries its agent prompt, written once in Rust
+                        note: Then the page and the terminal read the same text instead of each building it
+
+needs:
+  t8y:/model/work  [met]  Exports work items with their blockers
+  t8y:/model/why  [met]  Exports the why paths
+  t8y:/model/debt  [met]  Exports the research debt
+  t8y:/format/lint  [met]  Lint findings travel with the data
+  t8y:/crates/serde  [met]  serde_json writes it
+  #markdown -> t8y:/crates/pulldown-cmark  [met]
+
+needed by:
+  t8y:/cli/build  The data it bakes in
+  t8y:/page/agent-prompt#one-source -> #prompts
+  t8y:/page/shell  Reads exactly the fields json writes
+
+why:
+  t8y:/cli/build -> t8y:/cli/json
+  t8y:/page/agent-prompt -> t8y:/cli/json
+  t8y:/cli/build -> t8y:/page/shell -> t8y:/cli/json

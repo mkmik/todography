@@ -1,0 +1,38 @@
+$ todography rdeps --all model/graph
+t8y:/cli/queries#rdeps -> t8y:/model/graph#needed-by
+t8y:/format/lint#cycles -> t8y:/model/graph#cycles
+t8y:/model/wanted -> t8y:/model/graph
+t8y:/model/work -> t8y:/model/graph#met
+t8y:/tui/map#links -> t8y:/model/graph#needed-by
+  t8y:/cli/json -> t8y:/format/lint
+  t8y:/format/tags -> t8y:/format/lint
+  t8y:/model/debt -> t8y:/model/wanted
+  t8y:/model/why -> t8y:/model/wanted
+  t8y:/model/work -> t8y:/model/wanted
+  t8y:/tui/map#glyphs -> t8y:/model/wanted
+  t8y:/bridges/jira -> t8y:/model/work
+  t8y:/cli/json -> t8y:/model/work
+  t8y:/cli/queries#next -> t8y:/model/work
+  t8y:/cli/queries#show -> t8y:/model/work
+  t8y:/model/buckets -> t8y:/model/work
+  t8y:/page/agent-prompt#blockers -> t8y:/model/work
+  t8y:/page/roadmap -> t8y:/model/work
+  t8y:/tui/focus -> t8y:/model/work
+  t8y:/tui/roadmap -> t8y:/model/work
+    t8y:/cli/build -> t8y:/cli/json
+    t8y:/page/agent-prompt#one-source -> t8y:/cli/json#prompts
+    t8y:/page/shell -> t8y:/cli/json
+    t8y:/cli/json -> t8y:/model/debt
+    t8y:/cli/queries#debt -> t8y:/model/debt
+    t8y:/cli/json -> t8y:/model/why
+    t8y:/cli/queries#show -> t8y:/model/why
+    t8y:/cli/queries#why -> t8y:/model/why
+    t8y:/tui/focus -> t8y:/model/why
+    t8y:/page/agent-prompt#page-copy -> t8y:/page/roadmap
+      t8y:/cli/build -> t8y:/page/shell
+      t8y:/page/choose -> t8y:/page/shell
+      t8y:/page/focus -> t8y:/page/shell
+      t8y:/page/map-view -> t8y:/page/shell
+      t8y:/page/roadmap -> t8y:/page/shell
+        t8y:/page/agent-prompt#page-copy -> t8y:/page/focus
+        t8y:/page/canvas-layout -> t8y:/page/map-view
