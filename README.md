@@ -27,8 +27,6 @@ todography next --all  # what's ready, and what's blocked by what
 todography build       # write the interactive page
 ```
 
-The name is *todo* plus *topography*.
-
 ## Documentation
 
 Everything is in the book: **https://mkmik.github.io/todography/**
