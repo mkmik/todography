@@ -22,6 +22,7 @@ commands:
   build [--out PATH]              write the interactive map (default out/map/index.html)
   open                            build the interactive map in a temp directory and open it
   tui                             the interactive map's views in the terminal
+  version                         print todography's version
 
 LABEL is t8y:/area/component, /area/component or area/component, with an
 optional #feature: exec/mailboxes#attention-asts.
@@ -113,6 +114,11 @@ fn run() -> Result<ExitCode, String> {
         } else {
             ExitCode::SUCCESS
         });
+    }
+    if a.command == "version" {
+        check_flags(&a, &[], 0)?;
+        println!("todography {}", env!("CARGO_PKG_VERSION"));
+        return Ok(ExitCode::SUCCESS);
     }
     let has = |f: &str| a.flags.iter().any(|x| x == f);
     match a.command.as_str() {
