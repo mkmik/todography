@@ -98,3 +98,14 @@ jobs:
         env:
           V: ${{ steps.v.outputs.v }}
           GH_TOKEN: ${{ github.token }}
+
+      # The tap's bump workflow also polls hourly; this just runs it now. The
+      # token can only start workflows on the tap, not push to it.
+      - run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::TAP_DISPATCH_TOKEN not set; the tap will catch up on its hourly poll"
+            exit 0
+          fi
+          gh workflow run bump.yml -R mkmik/homebrew-tap
+        env:
+          GH_TOKEN: ${{ secrets.TAP_DISPATCH_TOKEN }}
