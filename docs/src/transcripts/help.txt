@@ -10,6 +10,7 @@ commands:
   debt                            wanted components whose needs aren't researched yet
   json                            the map as JSON
   build [--out PATH]              write the interactive map (default out/map/index.html)
+  open                            build the interactive map in a temp directory and open it
   tui                             the interactive map's views in the terminal
 
 LABEL is t8y:/area/component, /area/component or area/component, with an

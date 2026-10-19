@@ -20,6 +20,7 @@ commands:
   debt                            wanted components whose needs aren't researched yet
   json                            the map as JSON
   build [--out PATH]              write the interactive map (default out/map/index.html)
+  open                            build the interactive map in a temp directory and open it
   tui                             the interactive map's views in the terminal
 
 LABEL is t8y:/area/component, /area/component or area/component, with an
@@ -121,6 +122,7 @@ fn run() -> Result<ExitCode, String> {
         "next" => check_flags(&a, &["--all", "--milestone"], 0)?,
         "debt" | "json" => check_flags(&a, &[], 0)?,
         "build" => check_flags(&a, &["--out"], 0)?,
+        "open" => check_flags(&a, &[], 0)?,
         "tui" => check_flags(&a, &[], 0)?,
         c => return Err(format!("unknown command {c}; try todography help")),
     }
@@ -133,6 +135,7 @@ fn run() -> Result<ExitCode, String> {
     if a.command != "lint"
         && a.command != "json"
         && a.command != "build"
+        && a.command != "open"
         && !map.lint.errors.is_empty()
     {
         eprintln!(
@@ -184,6 +187,29 @@ fn run() -> Result<ExitCode, String> {
             }
             fs::write(&out, json::page(&map)).map_err(|e| format!("{}: {e}", out.display()))?;
             println!("{}", shown(&out));
+        }
+        "open" => {
+            // One file per map, overwritten each time, so temp doesn't fill up.
+            let mut h = std::hash::DefaultHasher::new();
+            std::hash::Hash::hash(&map.root, &mut h);
+            let dir = std::env::temp_dir()
+                .join(format!("todography-{:016x}", std::hash::Hasher::finish(&h)));
+            fs::create_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+            let out = dir.join("index.html");
+            fs::write(&out, json::page(&map)).map_err(|e| format!("{}: {e}", out.display()))?;
+            println!("{}", out.display());
+            let mut cmd = if cfg!(target_os = "macos") {
+                std::process::Command::new("open")
+            } else if cfg!(windows) {
+                let mut c = std::process::Command::new("cmd");
+                c.args(["/C", "start", ""]);
+                c
+            } else {
+                std::process::Command::new("xdg-open")
+            };
+            cmd.arg(&out)
+                .status()
+                .map_err(|e| format!("can't open a browser: {e}"))?;
         }
         _ => unreachable!(),
     }

@@ -53,7 +53,7 @@ prefixed `todography:`.
 
 `show`, `why`, `rdeps`, `next` and `debt` work on a map with lint errors,
 using whatever loaded. They first print `todography: the map has N lint
-errors; see todography lint` to standard error. `json` and `build` don't
+errors; see todography lint` to standard error. `json`, `build` and `open` don't
 print that; the errors travel in their output instead.
 
 ## lint
@@ -172,6 +172,16 @@ relative to the current directory when it's below it.
 The page is written even when lint finds errors; it shows them in a badge.
 Set `SOURCE_DATE_EPOCH` to fix the build time it records, for reproducible
 builds.
+
+## open
+
+```console
+todography open
+```
+
+Builds the page like `build`, into a directory under the system temp
+directory, and opens it in the browser. Each map gets its own file, which
+the next `open` overwrites. It prints the path it wrote.
 
 ## tui
 
