@@ -1,7 +1,7 @@
 [package]
 name = "todography"
 description = "Checks and queries a map of components kept as Markdown files"
-version = "0.8.0"
+version = "0.9.0"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/mkmik/todography"
