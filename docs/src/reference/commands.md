@@ -191,3 +191,11 @@ todography tui
 
 Opens the [terminal UI](tui.md). It reads the map files itself and can read
 them again with `r`.
+
+## version
+
+```console
+todography version
+```
+
+Prints todography's version, such as `todography 0.7.0`. It doesn't need a map.
