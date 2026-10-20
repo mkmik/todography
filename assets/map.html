@@ -1274,7 +1274,10 @@ function card(c) {
   if (c.intent === "aspiration" && (!w || chosen.has(c.label))) add(el, h("div", { class: "state" }, previewToggle(c)));
 
   if (c.features.length) {
-    add(el, h("h3", null, "Features"), h("ul", { class: "feats" }, c.features.map(f => featureRow(c, f))));
+    // Todo first and done last, like `show`; sort is stable, so file order holds within a status.
+    const order = ["todo", "wip", "dropped", "done"];
+    const feats = [...c.features].sort((a, b) => order.indexOf(a.status) - order.indexOf(b.status));
+    add(el, h("h3", null, "Features"), h("ul", { class: "feats" }, feats.map(f => featureRow(c, f))));
   }
 
   add(el, h("h3", null, "Why it exists"), whySection(c));

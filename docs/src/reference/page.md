@@ -73,8 +73,9 @@ A label after `focus=` can also be written without `t8y:` or the leading
 
 - One component as a card: title, label, other names, summary, chips (kind,
   intent, wanted, status, research, milestone, research debt), progress,
-  whether it's ready or what blocks it, its features as a checklist (each
-  with status, milestone, note, refs, its own needs and its blockers), the
+  whether it's ready or what blocks it, its features as a checklist in the
+  same order as `show` (each with status, milestone, note, refs, its own
+  needs and its blockers), the
   why chains, its description, its refs (URLs as links, paths as text) and
   its fuzzy needs.
 - On the left, what it needs: one node per component, with each need's
