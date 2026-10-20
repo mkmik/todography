@@ -5,8 +5,8 @@ t8y:/core/sync  Sync
   file docs/map/core/sync.md
 
 features:
-  done    one-way  Copy changes from A to B
   todo    two-way  Copy changes both ways, and spot conflicts
+  done    one-way  Copy changes from A to B
 
 needs:
   #two-way -> t8y:/core/watch#recursive  [unmet]

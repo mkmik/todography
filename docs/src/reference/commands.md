@@ -78,7 +78,8 @@ Prints one component:
   not, and `research debt` if it has some;
 - its refs, and its file;
 - `features:` each feature's status, id and title, with its milestone in
-  parentheses and its note on the next line;
+  parentheses and its note on the next line. Todo comes first, then wip,
+  dropped and done; features with the same status keep the file's order;
 - `needs:` each need with its state in brackets (`met`, `unmet`,
   `unmet, soft`, `unmet, dropped feature`, `fuzzy` or `unresolved`) and its
   `why`. A feature's needs start with `#feature ->`;

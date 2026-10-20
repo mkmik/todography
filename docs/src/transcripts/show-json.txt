@@ -7,11 +7,11 @@ t8y:/cli/json  JSON
   file docs/map/cli/json.md
 
 features:
+  todo    prompts       Each work item carries its agent prompt, written once in Rust
+                        note: Then the page and the terminal read the same text instead of each building it
   done    export        Components, features, needs, status, wanted, why, work, debt, lint
   done    markdown      Bodies and AREA.md rendered to HTML
   done    reproducible  generated is SOURCE_DATE_EPOCH when set
-  todo    prompts       Each work item carries its agent prompt, written once in Rust
-                        note: Then the page and the terminal read the same text instead of each building it
 
 needs:
   t8y:/model/work  [met]  Exports work items with their blockers

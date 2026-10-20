@@ -1,7 +1,7 @@
 //! The text the queries print, for agents and people at a terminal.
 
 use crate::label::Label;
-use crate::map::{Comp, Map, Need, Work};
+use crate::map::{Comp, FeatureStatus, Map, Need, Work};
 use std::collections::VecDeque;
 use std::fmt::Write;
 
@@ -100,7 +100,16 @@ pub fn show(map: &Map, i: usize, feature: Option<&str>) -> String {
     if !c.features.is_empty() {
         let _ = writeln!(o, "\nfeatures:");
         let w = c.features.iter().map(|f| f.id.len()).max().unwrap_or(0);
-        for f in &c.features {
+        // Todo first and done last; the sort is stable, so file order holds within a status.
+        let order = [
+            FeatureStatus::Todo,
+            FeatureStatus::Wip,
+            FeatureStatus::Dropped,
+            FeatureStatus::Done,
+        ];
+        let mut feats: Vec<_> = c.features.iter().collect();
+        feats.sort_by_key(|f| order.iter().position(|&s| s == f.status));
+        for f in feats {
             let mark = if Some(f.id.as_str()) == feature {
                 ">"
             } else {

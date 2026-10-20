@@ -7,11 +7,11 @@ t8y:/page/agent-prompt  Agent prompt
   file docs/map/page/agent-prompt.md
 
 features:
+  todo    one-source  One copy of the prompt text instead of two
+                      note: Today the text lives in both src/tui.rs and assets/map.html, and a change has to be made twice
   done    page-copy   Copy button on wanted work in Focus and Roadmap
   done    blockers    Blocked work lists every unfinished blocker, deepest first
   done    tui-copy    c in the terminal puts the same prompt on the clipboard
-  todo    one-source  One copy of the prompt text instead of two
-                      note: Today the text lives in both src/tui.rs and assets/map.html, and a change has to be made twice
 
 needs:
   #page-copy -> t8y:/page/focus  [met]
