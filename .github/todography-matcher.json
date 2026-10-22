@@ -1,0 +1,15 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "todography",
+      "pattern": [
+        {
+          "regexp": "^([^:]+): (error|warning): (.+)$",
+          "file": 1,
+          "severity": 2,
+          "message": 3
+        }
+      ]
+    }
+  ]
+}
