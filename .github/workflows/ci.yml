@@ -22,6 +22,22 @@ jobs:
       - run: cargo clippy --all-targets --locked -- -D warnings
       - run: cargo test --locked
 
+  # The GitHub Action in action.yml, as other repositories use it.
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: ./
+        with:
+          map: examples/todography
+          args: --strict
+      - uses: ./
+        with:
+          map: examples/todography
+          command: build
+          args: --out site/index.html
+      - run: test -s site/index.html
+
   # Every merge to main is a minor release. Lives here rather than in its own
   # workflow so it inherits `needs: test` instead of re-running the suite.
   release:
