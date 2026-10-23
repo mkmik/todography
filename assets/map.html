@@ -20,6 +20,8 @@
   --accent-bg: #f6e6eb;
   --brand: #8a1c3c;
   --brand-ink: #ffffff;
+  --logo-ink: #7a4e24;
+  --logo-dot: #2f7d4f;
   --done: #2b7649;
   --done-bg: #ddeee3;
   --partial: #285f9e;
@@ -50,6 +52,8 @@
     --accent-bg: #3a1c27;
     --brand: #9b2547;
     --brand-ink: #ffffff;
+    --logo-ink: #d9b48a;
+    --logo-dot: #6cc28f;
     --done: #6bbf8b;
     --done-bg: #1a3124;
     --partial: #7eaae3;
@@ -78,6 +82,8 @@
   --accent-bg: #3a1c27;
   --brand: #9b2547;
   --brand-ink: #ffffff;
+  --logo-ink: #d9b48a;
+  --logo-dot: #6cc28f;
   --done: #6bbf8b;
   --done-bg: #1a3124;
   --partial: #7eaae3;
@@ -108,10 +114,10 @@ h2, h3, h4 { line-height: 1.25; }
 /* Header */
 .top { background: var(--surface); border-bottom: 1px solid var(--line); position: relative; }
 .top-row { display: flex; align-items: center; gap: 10px 14px; padding-top: 10px; flex-wrap: wrap; }
-.brand { display: flex; align-items: baseline; gap: 8px; color: var(--ink); margin-right: auto; }
+.brand { display: flex; align-items: center; gap: 8px; color: var(--ink); margin-right: auto; }
 .brand:hover { text-decoration: none; }
 .brand .mark { font-family: var(--mono); font-weight: 700; font-size: 15px; background: var(--brand); color: var(--brand-ink); padding: 2px 8px 3px; border-radius: 2px; }
-.brand .sub { color: var(--muted); }
+.brand .logo { height: 28px; width: auto; display: block; }
 .search { position: relative; flex: 0 1 320px; min-width: 0; }
 .search input { width: 100%; padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: 3px; background: var(--bg); }
 .results { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 30; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 3px; max-height: 60vh; overflow: auto; margin: 0; padding: 4px 0; list-style: none; }
@@ -350,7 +356,7 @@ a.node:hover { text-decoration: none; border-color: var(--ink); }
 }
 @media (max-width: 640px) {
   .search { flex: 1 1 100%; order: 3; }
-  .brand .sub { display: none; }
+  .brand .logo { display: none; }
   .stats .gen { margin-left: 0; }
   .tabs a { flex: 1 1 0; text-align: center; padding: 8px 4px 7px; }
   .lint-panel { right: 16px; left: 16px; width: auto; }
@@ -362,7 +368,20 @@ a.node:hover { text-decoration: none; border-color: var(--ink); }
 <body>
 <header class="top">
   <div class="wrap top-row">
-    <a class="brand" href="#view=map"><span class="mark" id="brand-title">map</span><span class="sub">todography</span></a>
+    <a class="brand" href="#view=map">
+    <svg class="logo" viewBox="0 0 780 200" role="img" aria-label="todography">
+      <g fill="none" stroke="var(--logo-ink)" stroke-width="3.5" stroke-linejoin="round">
+        <path d="M14,124 C10,96 30,80 52,82 C66,84 76,92 86,92 C96,92 104,60 132,52 C164,44 190,68 188,104 C186,140 160,164 128,162 C104,160 96,146 84,148 C70,150 62,160 46,158 C26,156 16,144 14,124 Z"/>
+        <path d="M30,122 C30,108 40,100 52,102 C64,104 70,112 68,124 C66,136 56,142 46,140 C36,138 30,132 30,122 Z"/>
+        <path d="M104,104 C104,80 118,68 138,68 C160,68 172,84 170,104 C168,126 154,140 136,140 C116,140 104,126 104,104 Z"/>
+        <path d="M120,104 C120,92 128,84 138,84 C150,84 156,94 155,104 C154,116 146,122 137,122 C127,122 120,114 120,104 Z"/>
+      </g>
+      <path d="M57,116 C78,104 94,100 122,103" fill="none" stroke="var(--logo-dot)" stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round"/>
+      <circle cx="49" cy="121" r="6.5" fill="var(--logo-dot)"/>
+      <path d="M129,104 L136,111 L149,95" fill="none" stroke="var(--logo-dot)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="214" y="134" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="-2" fill="var(--ink)">todography</text>
+    </svg>
+    <span class="mark" id="brand-title">map</span></a>
     <div class="search">
       <input id="q" type="search" placeholder="Search components" autocomplete="off" spellcheck="false" aria-label="Search components" aria-controls="results">
       <ul id="results" class="results" role="listbox" hidden></ul>
